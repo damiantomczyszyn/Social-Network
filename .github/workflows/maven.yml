@@ -80,7 +80,9 @@ jobs:
         run: pwd  
       - name: go-to-snaphsot-dir
         run: |
-         cd social-network/target/
+         cd social-network
+         ls
+         cd target
          ls
          pwd
 
