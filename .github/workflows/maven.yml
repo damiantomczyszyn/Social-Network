@@ -15,6 +15,18 @@ on:
     branches: [ "main" ]
 
 jobs:
+  run-github-actions:
+    runs-on: ubuntu-lastest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: List Files
+        run: ls
+      - name: directory location
+        run: pwd
+        
+      - name: Get the output time
+        run: echo"${{ steps.hello.outputs.time }}"
   build:
 
     runs-on: ubuntu-latest
