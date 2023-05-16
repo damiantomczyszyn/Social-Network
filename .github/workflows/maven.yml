@@ -24,7 +24,7 @@ jobs:
         run: ls
       - name: start frontend
         run: |
-         cd social-network-fontend
+         cd social-network-frontend
          docker compose up
          cd ..
       - name: directory location
