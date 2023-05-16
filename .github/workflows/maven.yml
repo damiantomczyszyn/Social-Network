@@ -29,7 +29,8 @@ jobs:
         cache: maven
     - name: Build with Maven
     
-      run: docker compose up\
+      run: |
+           docker compose up
            mvn clean install
            
 
