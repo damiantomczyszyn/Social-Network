@@ -68,6 +68,9 @@ jobs:
       
     - name: Build Maven   
       run: mvn clean install
+      
+      
+      
            
   take-snapshot:  
     runs-on: ubuntu-latest
@@ -80,9 +83,8 @@ jobs:
         run: pwd  
       - name: go-to-snaphsot-dir
         run: |
-         cd social-network
+         cd /home/runner/.m2/repository/groupId/Social-Network/1.0-SNAPSHOT
          ls
-         cd target
-         ls
-         pwd
+         
+
 
