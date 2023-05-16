@@ -69,4 +69,18 @@ jobs:
     - name: Build Maven   
       run: mvn clean install
            
-           
+  take-snapshot:  
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: List Files
+        run: ls
+     
+      - name: directory location
+        run: pwd  
+      - name: go-to-snaphsot-dir
+        run: |
+         cd social-network/target/
+         ls
+         pwd
+
