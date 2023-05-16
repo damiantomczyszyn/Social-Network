@@ -10,6 +10,6 @@ public class SocialNetworkApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SocialNetworkApplication.class, args);
-        System.out.println("Test ---.--- Test");
+
     }
 }
