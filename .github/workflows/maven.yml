@@ -15,22 +15,49 @@ on:
     branches: [ "main" ]
 
 jobs:
-  run-github-actions:
+  docker-frontend-start:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
       - name: List Files
         run: ls
+      - name: start frontend
+        run: |
+         cd social-network-fontend
+         docker compose up
+         cd ..
       - name: directory location
         run: pwd
         
       - name: Get the output time
         run: echo"${{ steps.hello.outputs.time }}"
+        
+        
+  docker-backend-start:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: List Files
+        run: ls
+      - name: start frontend
+        run: |
+         cd social-network
+         docker compose up
+         cd ..
+      - name: directory location
+        run: pwd
+        
+      - name: Get the output time
+        run: echo"${{ steps.hello.outputs.time }}"
+        
   build:
 
     runs-on: ubuntu-latest
-    needs: run-github-actions
+    needs: |
+      docker-frontend-start
+      docker-backend-start
 
     steps:
     - uses: actions/checkout@v3
@@ -40,8 +67,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Start Docker compose    
-      run: docker compose up
       
     - name: Build Maven   
       run: mvn clean install
